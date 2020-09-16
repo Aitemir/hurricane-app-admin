@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>
+    <mat-icon id="icon">delete</mat-icon>
+    Remove {{groupId}} Group
+</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to delete the {{groupId}} group?</p>
+</div>
+<div mat-dialog-actions>
+<button 
+  mat-stroked-button
+  (click)="onNoClick()">        
+      Cancel
+  </button>
+  <button 
+  mat-flat-button 
+  color="warn"
+  (click)="removeGroup()">        
+      Remove
+  </button>
+</div>

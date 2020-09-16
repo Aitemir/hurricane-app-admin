@@ -1,0 +1,26 @@
+<div class="container">
+  <mat-icon id="icon">home</mat-icon>
+  <h3 id="title">Choose your shelter</h3>
+  <div *ngIf="!error && shelters.length != 0" id="note">
+      Click on a shelter that you want to manage
+    </div>
+    <div *ngIf="error" id="note-error">
+      <span class="warning"><mat-icon id="icon" color="warn">error</mat-icon> 
+        Ooops... something went wrong. Please refresh the page or try again later
+      </span>
+    </div>
+  <mat-nav-list>
+      <mat-list-item *ngFor="let shelter of shelters; let i = index; last as last">
+        <a matLine routerLink="/check-in" (click)="setShelter(i)">
+          <h4>{{shelter.shelterName}}</h4>
+        </a>
+        <mat-divider *ngIf="!last"></mat-divider>
+     </mat-list-item>
+  </mat-nav-list>
+  <section id="mat-spinner" *ngIf="isLoadingResults">
+    <mat-progress-spinner 
+      color="primary" 
+      mode="indeterminate">
+    </mat-progress-spinner>
+  </section>
+</div>

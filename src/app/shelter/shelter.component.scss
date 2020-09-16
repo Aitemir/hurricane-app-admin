@@ -1,0 +1,58 @@
+.container {
+    max-width:600px;
+    margin:auto;
+    margin-top: 15px;
+    text-align: center;
+    background-color: white;
+} 
+
+mat-nav-list {
+    width: 100%;
+}
+
+h2 {
+    padding-top: 15px;
+}
+
+h4 { 
+    font-weight: normal; 
+}
+
+#title {
+    margin-left: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#icon {
+    position: relative;
+    top: 4px;
+    left: 0px;
+}
+
+#note {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 20px;
+    color: rgba(0,0,0,.54);
+}
+
+#note-error {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.warning {
+    color:red;
+}
+
+#mat-spinner {
+    margin-top: 30px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.label {
+    color: red;
+}
