@@ -2,7 +2,7 @@
 <h2>
   {{shelter.shelterName}}
 </h2>
-<mat-chip-list>
+<mat-chip-list class="regular">
   <mat-chip selected>
     Max capacity: {{shelter.maxCapacity}}
   </mat-chip>
@@ -19,6 +19,26 @@
     Checked in isolated: {{isolated}} 
   </mat-chip>
 </mat-chip-list>
+
+<div class="mat-chip-container">
+  <mat-chip-list class="mat-chip-list-stacked">
+    <mat-chip selected>
+      Max capacity: {{shelter.maxCapacity}}
+    </mat-chip>
+    <mat-chip selected>
+      Shelter status: {{shelter.shelterStatus}}
+    </mat-chip>
+    <mat-chip selected>
+      Registered: {{registered}}
+    </mat-chip>
+    <mat-chip selected color="accent">
+      Checked in: {{checkedIn}}
+    </mat-chip>
+    <mat-chip selected color="warn">
+      Checked in isolated: {{isolated}} 
+    </mat-chip>
+  </mat-chip-list>
+</div>
   <mat-form-field class="search">
     <mat-label>Search groups</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Group ID, Registration, Arrival, Departure dates">
@@ -28,32 +48,33 @@
 
     <ng-container matColumnDef="groupId">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-      <td mat-cell *matCellDef="let evacueeGroup"> {{evacueeGroup.groupId}}</td>
+      <td mat-cell *matCellDef="let evacueeGroup"><span class="mobile-label">ID:</span> {{evacueeGroup.groupId}}</td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Designated POC</th>
-      <td mat-cell *matCellDef="let evacueeGroup"> {{evacueeGroup.name | titlecase}}</td>
+      <td mat-cell *matCellDef="let evacueeGroup"><span class="mobile-label">Designated POC:</span> {{evacueeGroup.name | titlecase}}</td>
     </ng-container>
 
     <ng-container matColumnDef="registrationDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Registration Date</th>
-      <td mat-cell *matCellDef="let evacueeGroup"> {{evacueeGroup.registrationDate | date: 'short' }}</td>
+      <td mat-cell *matCellDef="let evacueeGroup"><span class="mobile-label">Registration Date:</span> {{evacueeGroup.registrationDate | date: 'short' }}</td>
     </ng-container>
   
     <ng-container matColumnDef="checkedIn">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Checked in</th>
-      <td mat-cell *matCellDef="let evacueeGroup"> {{evacueeGroup.checkedIn || "-"}}</td>
+      <td mat-cell *matCellDef="let evacueeGroup"><span class="mobile-label">Checked in:</span> {{evacueeGroup.checkedIn || "-"}}</td>
     </ng-container>
 
     <ng-container matColumnDef="arrivalDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Arrival Date</th>
-      <td mat-cell *matCellDef="let evacueeGroup"> {{evacueeGroup.arrivalDate | date:'short'}}</td>
+      <td mat-cell *matCellDef="let evacueeGroup"><span class="mobile-label">Arrival Date:</span> {{evacueeGroup.arrivalDate | date:'short'}}</td>
     </ng-container>
     
     <ng-container matColumnDef="address">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Address</th>
       <td mat-cell *matCellDef="let evacueeGroup">
+        <span class="mobile-label">Address</span>
         <button
         mat-icon-button 
         matTooltip="address info"
@@ -67,14 +88,7 @@
 
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>
-        <button
-        mat-icon-button 
-        matTooltip="refresh"
-        (click)="refresh()">
-          <mat-icon id="icon" color="primary">
-            refresh
-          </mat-icon>
-        </button>
+        Action
       </th>
       <td mat-cell *matCellDef="let evacueeGroup">
         <button 
@@ -87,8 +101,18 @@
     </ng-container>
 
     <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Remove</th>
+      <th mat-header-cell *matHeaderCellDef>
+        <button
+        mat-icon-button 
+        matTooltip="refresh"
+        (click)="refresh()">
+          <mat-icon id="icon" color="primary">
+            refresh
+          </mat-icon>
+        </button>
+      </th>
       <td mat-cell *matCellDef="let evacueeGroup">
+        <span class="mobile-label">Delete</span>
         <button
         mat-icon-button 
         matTooltip="address info"

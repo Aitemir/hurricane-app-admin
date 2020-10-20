@@ -1,6 +1,7 @@
 .wrapper {
     max-width: 900px;
-    margin: 50px auto;
+    margin: auto;
+    margin-top: 50px;
 }
   
 table {
@@ -11,7 +12,7 @@ th, td {
   overflow: hidden;
   width:auto;
   text-overflow: ellipsis;
-  white-space: pre-line //nowrap
+  white-space: pre-line 
 }
 
 .search {
@@ -48,4 +49,96 @@ th, td {
 
 .mat-row:hover {
   background-color:#ebebeb;
+}
+
+.mobile-label {
+  display: none;
+}
+
+.mat-chip-list-stacked {
+  display:none;
+}
+
+@media screen and (max-width:600px) {
+
+  .wrapper {
+    max-width: 90%;
+    padding-bottom: 20px;
+  }
+
+  .search {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    //padding-left: 20px;
+    //width: 80%;
+  }
+
+  .mat-chip-container {
+    padding-left: 20px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  mat-chip {
+    max-width: 90%;    
+  }
+
+  .mat-chip-list-stacked {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  .regular {
+    display:none
+  }
+
+  .mobile-label {
+    display: inline;
+  }
+  
+  .mat-elevation-z8 {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+  }
+  
+  .mat-table {
+    background: transparent;
+    * {
+      box-sizing: border-box;
+    }
+
+    .mat-row {
+      display: block;
+      overflow: hidden;
+      height: auto;
+      position: relative;
+      clear: both;
+      box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+      background-color: #fff;
+      border-radius: 3px;
+      + .mat-row {
+        margin-top: 24px;
+      }
+    }
+
+    .mat-cell {
+      display: block;
+      width: 100%;
+      padding: 0 16px;
+      margin: 16px 0;
+      border: 0 none;   
+    }
+  }
 }

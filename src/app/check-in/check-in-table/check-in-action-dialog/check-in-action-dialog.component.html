@@ -8,22 +8,22 @@
   
       <ng-container matColumnDef="evacueeId">
         <th mat-header-cell *matHeaderCellDef> Evacuee ID </th>
-        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"> {{evacuee.evacueeId}} </td>
+        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"><span class="mobile-label">Evacuee ID:</span> {{evacuee.evacueeId}} </td>
       </ng-container>
   
       <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef> First name</th>
-        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"> {{evacuee.firstName | titlecase}} </td>
+        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"><span class="mobile-label">First name:</span> {{evacuee.firstName | titlecase}} </td>
       </ng-container>
     
       <ng-container matColumnDef="lastName">
         <th mat-header-cell *matHeaderCellDef> Last name </th>
-        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"> {{evacuee.lastName | titlecase}} </td>
+        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"><span class="mobile-label">Last name:</span> {{evacuee.lastName | titlecase}} </td>
       </ng-container>
 
       <ng-container matColumnDef="covidSymptoms">
         <th mat-header-cell *matHeaderCellDef> Symptoms </th>
-        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"> {{evacuee.covidSymptoms | titlecase }} </td>
+        <td mat-cell *matCellDef="let evacuee" [ngClass]="{ 'highlight': evacuee.covidSymptoms == 'Y' }"><span class="mobile-label">Symptoms:</span> {{evacuee.covidSymptoms || "-" }} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
